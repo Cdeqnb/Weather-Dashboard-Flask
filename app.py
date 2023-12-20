@@ -21,9 +21,6 @@ def render_results():
 
     return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
 
-if __name__ == '__main__':
-    app.run()
-
 def get_api_key():
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -34,4 +31,5 @@ def get_weather_results(zip_code, api_key):
     r = requests.get(api_url)
     return r.json()
 
-print(get_weather_results("68137", get_api_key()))
+if __name__ == '__main__':
+    app.run()
