@@ -16,7 +16,7 @@ def render_results():
     data = get_weather_results(zip_code, api_key)
     temp = "{0:.2f}".format(data["main"]["temp"])
     feels_like = "{0:.2f}".format(data["main"]["feels_like"])
-    weather = data["weather"]["main"]
+    weather = data["weather"][0]["main"]
     location = data["name"]
 
     return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
