@@ -10,3 +10,11 @@ h2 {
 #weatherForm {
     padding: 20px;
 }
+
+#weatherSubmit {
+    color: white;
+    background-color: salmon;
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
