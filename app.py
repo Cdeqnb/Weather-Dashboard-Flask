@@ -1,12 +1,12 @@
 import requests
 import configparser
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def weather_dashboard():
-    return "Hello World"
+    return render_template('home.html')
 
 @app.route('/results')
 def render_results():
