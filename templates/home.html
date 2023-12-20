@@ -6,9 +6,9 @@
     </head>
     <body>
         <h2>Weather Dashboard in Flask</h2>
-        <form action="{{ url_for('render_results') }}" method="post">
-            Location Zip Code: <input type="text" name="zipCode"><br>
-            <input type="submit" value="Submit">
+        <form id="weatherForm" action="{{ url_for('render_results') }}" method="post">
+            Location Zip Code: <input id="weatherInput" type="text" name="zipCode"><br>
+            <input id="weatherSubmit" type="submit" value="Submit">
         </form>
     </body>
 </html>
