@@ -5,7 +5,7 @@
     </head>
     <body>
         <h2>Weather Dashboard in Flask</h2>
-        <form>
+        <form action="{{ url_for('render_results') }}" method="post">
             Location Zip Code: <input type="text" name="zipCode"><br>
             <input type="submit" value="Submit">
         </form>

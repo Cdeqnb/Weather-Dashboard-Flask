@@ -1,6 +1,6 @@
 import requests
 import configparser
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -8,9 +8,10 @@ app = Flask(__name__)
 def weather_dashboard():
     return render_template('home.html')
 
-@app.route('/results')
+@app.route('/results', methods = ['POST'])
 def render_results():
-    return "Results Page"
+    zip_code = request.form['zipCode']
+    return "Zip Code: " + zip_code
 
 if __name__ == '__main__':
     app.run()
