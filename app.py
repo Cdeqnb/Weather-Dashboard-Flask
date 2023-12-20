@@ -11,6 +11,14 @@ def weather_dashboard():
 @app.route('/results', methods = ['POST'])
 def render_results():
     zip_code = request.form['zipCode']
+
+    api_key = get_api_key()
+    data = get_weather_results(zip_code, api_key)
+    temp = "{0:.2f}".format(data["main"]["temp"])
+    feels_like = "{0:.2f}".format(data["main"]["feels_like"])
+    weather = data["weather"]["main"]
+    location = data["name"]
+
     return "Zip Code: " + zip_code
 
 if __name__ == '__main__':
@@ -22,7 +30,7 @@ def get_api_key():
     return config['openweathermap']['api']
 
 def get_weather_results(zip_code, api_key):
-    api_url = "https://api.openweathermap.org/data/2.5/weather?zip={}&appid={}".format(zip_code, api_key)
+    api_url = "https://api.openweathermap.org/data/2.5/weather?zip={}&units=imperial&appid={}".format(zip_code, api_key)
     r = requests.get(api_url)
     return r.json()
 
