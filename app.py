@@ -1,5 +1,19 @@
 import requests
 import configparser
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def weather_dashboard():
+    return "Hello World"
+
+@app.route('/results')
+def render_results():
+    return "Results Page"
+
+if __name__ == '__main__':
+    app.run()
 
 def get_api_key():
     config = configparser.ConfigParser()
