@@ -19,7 +19,7 @@ def render_results():
     weather = data["weather"]["main"]
     location = data["name"]
 
-    return "Zip Code: " + zip_code
+    return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
 
 if __name__ == '__main__':
     app.run()
